@@ -5,6 +5,7 @@ import { AttendanceModel, WorkedHoursModel, DailyAttendance } from '../models/at
 import { EmployeeModel } from '../models/employee';
 import getEmployeeFullName from '../util/getEmployeeFullName';
 import { validateEmployeeLocationAndArea } from '../util/locationValidation';
+import { formatHour } from '../util/dayjs_format';
 import type { firestore } from 'firebase-admin';
 
 interface ClockedInEmployee {
@@ -253,7 +254,7 @@ export class LocationMonitoringService {
         //     return result;
         // }
 
-        const clockOutResult = await this.performAutoClockOut(attendance, projectName, healthyDbs);
+        const clockOutResult = await this.performAutoClockOut(attendance, projectName, healthyDbs, employee.timezone);
 
         if (!clockOutResult.success) {
             return {
@@ -282,7 +283,7 @@ export class LocationMonitoringService {
         };
     }
 
-    private async performAutoClockOut(attendance: AttendanceModel, projectName: string, healthyDbs: Record<string, firestore.Firestore>): Promise<{ success: boolean; error?: string }> {
+    private async performAutoClockOut(attendance: AttendanceModel, projectName: string, healthyDbs: Record<string, firestore.Firestore>, employeeTimezone?: string | null): Promise<{ success: boolean; error?: string }> {
         const db = healthyDbs[projectName];
         if (!db) {
             return { success: false, error: 'Database not available' };
@@ -311,7 +312,7 @@ export class LocationMonitoringService {
                 id: crypto.randomUUID(),
                 timestamp: clockOutTimestamp,
                 type: 'Clock Out',
-                hour: dayjs.utc().format('h:mm A')
+                hour: formatHour(clockOutTimestamp, employeeTimezone || undefined)
             };
             workedHours.push(clockOutEntry);
  

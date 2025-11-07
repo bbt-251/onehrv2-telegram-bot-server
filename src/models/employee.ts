@@ -66,6 +66,7 @@ export interface EmployeeModel {
     workingLocation: string;
     workingArea: string; // JSON stringified [ [[lng, lat],[lng,lat],...] ,... ]
     homeLocation: string;
+    timezone: string | null; // e.g., "Africa/Nairobi", "Europe/Paris"
     managerPosition: boolean;
     reportees: string[];
     reportingLineManagerPosition: string;

@@ -5,6 +5,7 @@ import timezone from "dayjs/plugin/timezone";
 dayjs.extend(utc);
 dayjs.extend(timezone);
 // Removed default timezone setting to use UTC for storage
+export const DEFAULT_TZ: string = process.env.DEFAULT_TZ || 'Africa/Nairobi';
 
 export const dateFormat: string = "MMMM DD, YYYY";
 export const timestampFormat: string = "MMMM DD, YYYY hh:mm A";
@@ -20,6 +21,7 @@ export const getUTCDate = () => dayjs.utc().format(dateFormat);
 export const getTimestamp = () => dayjs.tz().format(timestampFormat);
 export const getDate = () => dayjs.tz().format(dateFormat);
 
-export const formatDate = (date: Date | string | dayjs.Dayjs) => dayjs.tz(date).format(dateFormat);
-export const formatTimestamp = (timestamp: Date | string | dayjs.Dayjs) => dayjs.tz(timestamp).format(timestampFormat);
+export const formatDate = (date: Date | string | dayjs.Dayjs, tz?: string) => dayjs.tz(date, tz || DEFAULT_TZ).format(dateFormat);
+export const formatTimestamp = (timestamp: Date | string | dayjs.Dayjs, tz?: string) => dayjs.tz(timestamp, tz || DEFAULT_TZ).format(timestampFormat);
+export const formatHour = (d: Date | string | dayjs.Dayjs, tz?: string) => dayjs.tz(d, tz || DEFAULT_TZ).format('h:mm A');
 

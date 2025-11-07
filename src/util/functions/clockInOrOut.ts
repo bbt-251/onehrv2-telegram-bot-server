@@ -4,6 +4,7 @@ import { AttendanceLogicModel } from "../../models/attendance-logic";
 import { ShiftTypeModel, ShiftHourModel } from "../../models/hrSettings";
 import calculateDailyWorkingHours from "../calculateDailyWorkingHours";
 import { updateAttendance } from "./attendance/attendance-service";
+import { formatHour } from "../dayjs_format";
 
 export const clockInOrOut = async (
     type: "Clock In" | "Clock Out",
@@ -12,6 +13,7 @@ export const clockInOrOut = async (
     attendanceLogic: AttendanceLogicModel,
     shiftHours: ShiftHourModel[],
     project: string,
+    employeeTimezone?: string | null,
 ): Promise<{ status: boolean, error?: string }> => {
     const selected = attendance;
     const newData: AttendanceModel = { ...selected };
@@ -61,7 +63,7 @@ export const clockInOrOut = async (
             id: crypto.randomUUID(),
             timestamp: clockInTimestamp,
             type: "Clock In",
-            hour: dayjs.utc().format("h:mm A"),
+            hour: formatHour(clockInTimestamp, employeeTimezone || undefined),
         });
 
         // Update the current day's worked hours with the clock-in entry
@@ -109,7 +111,7 @@ export const clockInOrOut = async (
             id: crypto.randomUUID(),
             timestamp: clockOutTimestamp,
             type: "Clock Out",
-            hour: dayjs.utc().format("h:mm A"),
+            hour: formatHour(clockOutTimestamp, employeeTimezone || undefined),
         });
 
         // Update daily and monthly worked hours
