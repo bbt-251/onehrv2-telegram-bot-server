@@ -21,7 +21,6 @@ export const getUTCDate = () => dayjs.utc().format(dateFormat);
 export const getTimestamp = () => dayjs.tz().format(timestampFormat);
 export const getDate = () => dayjs.tz().format(dateFormat);
 
-export const formatDate = (date: Date | string | dayjs.Dayjs, tz?: string) => dayjs.tz(date, tz || DEFAULT_TZ).format(dateFormat);
-export const formatTimestamp = (timestamp: Date | string | dayjs.Dayjs, tz?: string) => dayjs.tz(timestamp, tz || DEFAULT_TZ).format(timestampFormat);
-export const formatHour = (d: Date | string | dayjs.Dayjs, tz?: string) => dayjs.tz(d, tz || DEFAULT_TZ).format('h:mm A');
-
+export const formatDate = (date: Date | string | dayjs.Dayjs, tz?: string) => dayjs.utc(date).tz(tz || DEFAULT_TZ).format(dateFormat);
+export const formatTimestamp = (timestamp: Date | string | dayjs.Dayjs, tz?: string) => dayjs.utc(timestamp).tz(tz || DEFAULT_TZ).format(timestampFormat);
+export const formatHour = (d: Date | string | dayjs.Dayjs, tz?: string) => dayjs.utc(d).tz(tz || DEFAULT_TZ).format('h:mm A');
