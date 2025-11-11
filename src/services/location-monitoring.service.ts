@@ -190,7 +190,8 @@ export class LocationMonitoringService {
         const validation = validateEmployeeLocationAndArea(
             employee.currentLocation,
             employee.workingArea,
-            this.MAX_LOCATION_AGE_MINUTES
+            this.MAX_LOCATION_AGE_MINUTES,
+            employee.timezone
         );
 
         console.log(`   - Location validation result:`, {

@@ -22,7 +22,8 @@ export const clockInOrOut = async (
     const dailyWorkingHour: number = calculateDailyWorkingHours(
         dayjs.utc(),
         shiftType,
-        shiftHours
+        shiftHours,
+        employeeTimezone
     );
 
     if (dailyWorkingHour === 0) {

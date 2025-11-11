@@ -219,7 +219,8 @@ export function isPointInMultiPolygon(point: [number, number], multiPolygon: num
 export function validateEmployeeLocationAndArea(
     employeeLocation: EmployeeCurrentLocation | null,
     workingArea: string,
-    maxAgeMinutes: number = 30
+    maxAgeMinutes: number = 30,
+    employeeTimezone?: string | null
 ): LocationValidationResult {
     console.log(`******* employee location: `, employeeLocation);
     // Check if location exists at all
@@ -251,7 +252,8 @@ export function validateEmployeeLocationAndArea(
     const now = dayjs.utc();
     const ageMinutes = now.diff(locationTime, 'minute');
 
-    console.log(`locationTime: ${formatTimestamp(locationTime)} now: ${formatTimestamp(now)} diff: ${ageMinutes}`);
+    const tz = employeeTimezone || 'Africa/Nairobi';
+    console.log(`locationTime: ${formatTimestamp(locationTime, tz)} now: ${formatTimestamp(now, tz)} diff: ${ageMinutes}`);
 
     // Check if location is live
     const isLive = employeeLocation.isLive && (!employeeLocation.liveUntil || now.isBefore(dayjs.utc(employeeLocation.liveUntil)));

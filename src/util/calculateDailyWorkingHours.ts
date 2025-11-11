@@ -17,11 +17,13 @@ export const days: string[] = [
 function calculateDailyWorkingHours(
     currentDay: dayjs.Dayjs,
     shiftType: ShiftTypeModel,
-    shiftHours: ShiftHourModel[]
+    shiftHours: ShiftHourModel[],
+    employeeTimezone?: string | null
 ): number {
     let totalHours = 0;
 
-    const dayOfTheWeek = days[currentDay.tz().day()];
+    const tz = employeeTimezone || 'Africa/Nairobi';
+    const dayOfTheWeek = days[currentDay.tz(tz).day()];
     const workingDay = shiftType?.workingDays?.find(
         (day) => day.dayOfTheWeek === dayOfTheWeek
     );
