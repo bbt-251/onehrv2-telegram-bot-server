@@ -1,6 +1,6 @@
 // Telegram Bot implementation with node-telegram-bot-api for polling support
 import { getHealthyDbInstances, retryDatabaseOperation, employeeCache } from './firebase-config';
-import { getUTCTimestamp, timestampFormat } from './util/dayjs_format';
+import { getUTCTimestamp } from './util/dayjs_format';
 import { generateEmployeeAuthToken } from './services/auth-token.service';
 import {
     Contact,
@@ -620,7 +620,7 @@ async function saveEmployeeLocation(projectName: string, employeeId: string, cha
         }
     }
 
-    const liveUntil = liveUntilMs ? dayjs.tz(liveUntilMs).format(timestampFormat) : null;
+    const liveUntil = liveUntilMs ? dayjs.utc(liveUntilMs).toISOString() : null;
 
     // Some clients may include heading/speed; guard with type checks
     const heading = (location as unknown as { heading?: number }).heading;
