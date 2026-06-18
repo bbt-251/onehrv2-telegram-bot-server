@@ -42,7 +42,7 @@ app.listen(port, () => {
     console.log(`🔗 Webhook endpoint available at: http://localhost:${port}/webhook`);
     console.log(`🤖 Environment check - Bot token: ${process.env.TELEGRAM_BOT_TOKEN ? 'Set' : 'Not set'}`);
     console.log(`🔥 Environment check - Firebase configs: ${Object.keys(process.env).filter(key => key.includes('FIREBASE')).length} found`);
-    console.log(`🌐 Environment check - Web app URL: ${process.env.WEB_APP_URL ? 'Set' : 'Not set'}`);
+    console.log(`🌐 Environment check - Web app URL: ${process.env.WEB_APP_URL ? 'Set' : 'Not set'} -> ${process.env.WEB_APP_URL}`);
     console.log(`📡 Polling status: Always Enabled (Primary Function)`);
 
     // Start location monitoring service
