@@ -14,8 +14,8 @@ interface FirebaseConfig {
 }
 
 // Manually defined prefixes to match the .env variables
-const prefixes = ['DEVELOPMENT', 'DEV', 'INT', 'VALIDATION', 'CARGOLINK_DEV', 'CARGOLINK_INT', 'CARGOLINK_VAL', 'KOMARI', 'KOMARI_VAL']
-// const prefixes = ['DEVELOPMENT', 'DEV', 'INT', 'VALIDATION', 'CARGOLINK_DEV', 'CARGOLINK_INT', 'CARGOLINK_VAL', 'KOMARI', 'KOMARI_VAL', 'DEMO', 'BBT', 'KEGNA', 'GEBEYA', 'GEBEYA_VAL', 'ASGB']
+const prefixes = ['DEVELOPMENT', 'DEV', 'INT', 'VALIDATION', 'CARGOLINK_DEV', 'CARGOLINK_INT', 'KOMARI', 'KOMARI_VAL']
+// const prefixes = ['DEVELOPMENT', 'DEV', 'INT', 'VALIDATION', 'CARGOLINK_DEV', 'CARGOLINK_INT', 'KOMARI', 'KOMARI_VAL', 'DEMO', 'BBT', 'KEGNA', 'GEBEYA', 'GEBEYA_VAL', 'ASGB']
 
 // Store Firestore db instances
 const dbInstances: Record<string, any> = {} // eslint-disable-line @typescript-eslint/no-explicit-any

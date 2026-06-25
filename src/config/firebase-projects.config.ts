@@ -68,15 +68,7 @@ export const firebaseProjectConfigs: Record<string, FirebaseProjectConfig> = {
         appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID_CARGOLINK_INT || 'your-cargolink-int-app-id',
         measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID_CARGOLINK_INT || 'your-cargolink-int-measurement-id'
     },
-    cargolink_val: {
-        projectId: 'your-cargolink-val-project-id',
-        apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY_CARGOLINK_VAL || 'your-cargolink-val-api-key',
-        authDomain: 'your-cargolink-val-project-id.firebaseapp.com',
-        storageBucket: 'your-cargolink-val-project-id.appspot.com',
-        messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID_CARGOLINK_VAL || 'your-cargolink-val-messaging-sender-id',
-        appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID_CARGOLINK_VAL || 'your-cargolink-val-app-id',
-        measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID_CARGOLINK_VAL || 'your-cargolink-val-measurement-id'
-    }
+
 };
 
 /**
