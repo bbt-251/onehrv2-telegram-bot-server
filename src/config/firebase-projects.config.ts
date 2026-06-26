@@ -77,6 +77,15 @@ export const firebaseProjectConfigs: Record<string, FirebaseProjectConfig> = {
         appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID_CARGOLINK_PROD || 'your-cargolink-prod-app-id',
         measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID_CARGOLINK_PROD || 'your-cargolink-prod-measurement-id'
     },
+    komari: {
+        projectId: 'your-komari-project-id',
+        apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY_KOMARI || 'your-komari-api-key',
+        authDomain: 'your-komari-project-id.firebaseapp.com',
+        storageBucket: 'your-komari-project-id.appspot.com',
+        messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID_KOMARI || 'your-komari-messaging-sender-id',
+        appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID_KOMARI || 'your-komari-app-id',
+        measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID_KOMARI || 'your-komari-measurement-id'
+    },
 
 };
 
