@@ -41,24 +41,24 @@ export const firebaseProjectConfigs: Record<string, FirebaseProjectConfig> = {
         appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID_INT || 'your-int-app-id',
         measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID_INT || 'your-int-measurement-id'
     },
-    validation: {
-        projectId: 'your-validation-project-id',
-        apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY_VALIDATION || 'your-val-api-key',
-        authDomain: 'your-validation-project-id.firebaseapp.com',
-        storageBucket: 'your-validation-project-id.appspot.com',
-        messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID_VALIDATION || 'your-val-messaging-sender-id',
-        appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID_VALIDATION || 'your-val-app-id',
-        measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID_VALIDATION || 'your-val-measurement-id'
-    },
-    cargolink_dev: {
-        projectId: 'your-cargolink-dev-project-id',
-        apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY_CARGOLINK_DEV || 'your-cargolink-dev-api-key',
-        authDomain: 'your-cargolink-dev-project-id.firebaseapp.com',
-        storageBucket: 'your-cargolink-dev-project-id.appspot.com',
-        messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID_CARGOLINK_DEV || 'your-cargolink-dev-messaging-sender-id',
-        appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID_CARGOLINK_DEV || 'your-cargolink-dev-app-id',
-        measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID_CARGOLINK_DEV || 'your-cargolink-dev-measurement-id'
-    },
+    // validation: {
+    //     projectId: 'your-validation-project-id',
+    //     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY_VALIDATION || 'your-val-api-key',
+    //     authDomain: 'your-validation-project-id.firebaseapp.com',
+    //     storageBucket: 'your-validation-project-id.appspot.com',
+    //     messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID_VALIDATION || 'your-val-messaging-sender-id',
+    //     appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID_VALIDATION || 'your-val-app-id',
+    //     measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID_VALIDATION || 'your-val-measurement-id'
+    // },
+    // cargolink_dev: {
+    //     projectId: 'your-cargolink-dev-project-id',
+    //     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY_CARGOLINK_DEV || 'your-cargolink-dev-api-key',
+    //     authDomain: 'your-cargolink-dev-project-id.firebaseapp.com',
+    //     storageBucket: 'your-cargolink-dev-project-id.appspot.com',
+    //     messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID_CARGOLINK_DEV || 'your-cargolink-dev-messaging-sender-id',
+    //     appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID_CARGOLINK_DEV || 'your-cargolink-dev-app-id',
+    //     measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID_CARGOLINK_DEV || 'your-cargolink-dev-measurement-id'
+    // },
     cargolink_int: {
         projectId: 'your-cargolink-int-project-id',
         apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY_CARGOLINK_INT || 'your-cargolink-int-api-key',
@@ -67,6 +67,15 @@ export const firebaseProjectConfigs: Record<string, FirebaseProjectConfig> = {
         messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID_CARGOLINK_INT || 'your-cargolink-int-messaging-sender-id',
         appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID_CARGOLINK_INT || 'your-cargolink-int-app-id',
         measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID_CARGOLINK_INT || 'your-cargolink-int-measurement-id'
+    },
+    cargolink_prod: {
+        projectId: 'your-cargolink-prod-project-id',
+        apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY_CARGOLINK_PROD || 'your-cargolink-prod-api-key',
+        authDomain: 'your-cargolink-prod-project-id.firebaseapp.com',
+        storageBucket: 'your-cargolink-prod-project-id.appspot.com',
+        messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID_CARGOLINK_PROD || 'your-cargolink-prod-messaging-sender-id',
+        appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID_CARGOLINK_PROD || 'your-cargolink-prod-app-id',
+        measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID_CARGOLINK_PROD || 'your-cargolink-prod-measurement-id'
     },
 
 };
