@@ -15,7 +15,6 @@ interface FirebaseConfig {
 
 // Manually defined prefixes to match the .env variables
 const prefixes = ['DEVELOPMENT', 'DEV', 'INT', 'CARGOLINK_INT', 'CARGOLINK_PROD', 'KOMARI']
-// const prefixes = ['DEVELOPMENT', 'DEV', 'INT', 'VALIDATION', 'CARGOLINK_DEV', 'CARGOLINK_INT', 'KOMARI', 'KOMARI_VAL', 'DEMO', 'BBT', 'KEGNA', 'GEBEYA', 'GEBEYA_VAL', 'ASGB']
 
 // Store Firestore db instances
 const dbInstances: Record<string, any> = {} // eslint-disable-line @typescript-eslint/no-explicit-any
@@ -24,7 +23,7 @@ const dbInstances: Record<string, any> = {} // eslint-disable-line @typescript-e
 const firebaseConfigs: Record<string, FirebaseConfig> = {}
 
 prefixes.forEach(prefix => {
-    const envVar = `NEXT_PUBLIC_FIREBASE_ADMIN_${prefix}`
+    const envVar = `FIREBASE_ADMIN_${prefix}`
     if (process.env[envVar]) {
         const config: ExtendedServiceAccount = JSON.parse(process.env[envVar]!)
         const name = prefix.toLowerCase()
